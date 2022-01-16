@@ -17,15 +17,34 @@ y(i) = y(i-1) + dt*Vtag(y(i-1));
 x(i)=x(i-1)+dt; 
 end
 
-plot(x,y)
+
 grid on
 
+syms time
+format short
+sympref('FloatingPointOutput',true);
+sol = solve(exp(1/10*log(1/5)*time)*50==1);
+%%%24 minuntes%%%%
+
+ytrue = exp(1/10*log(1/5)*x)*50;
+
+plot(x,y,'r',x,ytrue,'b')
+
+error = zeros(1,n);
+
+for i=1:n
+error(i) = ytrue(i)-y(i);
+
+end
+
+figure
+plot(error)
 
 
 
 function z = Vtag(y)
 
-z = -1/6*log(10)*y;
+z = 1/10*log(1/5)*y;
 
 
 end
