@@ -19,16 +19,16 @@ for i=2:n
 end
 plot(t,x,'b',t,y,'r');
 
+T=x;
+syms x(t) y(t); %%ninase ahrkah bli
+eqns = [diff(x,t) == t-x-2*y,diff(y,t) == -y-4*diff(x,t)];
+cond = [ y(0) == y0,x(0) == x0];
+[x_symb,y_symb]=dsolve(eqns,cond) % symbolic sol 
+x_val = double(subs(x_symb,t, T)); % analytical sol x
+y_val = double(subs(y_symb,t, T));
+figure
+plot(T,x_val,'r',T,y_val,'b');
 
-% syms x(t) y(t); %%ninase ahrkah bli
-% eqns = [diff(x,t) == t-x-2*y,diff(y,t) == y-4*diff(x,t)];
-% cond = [ y(0) == y0,x(0) == x0];
-% [x_symb,y_symb]=dsolve(eqns,cond) % symbolic sol 
-% x_val = double(subs(x_symb, x)); % analytical sol x
-% y_val = double(subs(y_symb, x));
-% figure
-% plot(x,x_val,'r',x,y_val,'b');
-% 
 
 
 

@@ -4,6 +4,14 @@ L = b-a;
 while L> eps
 
 c = (a+b)/2;
+if f(a)==0
+ z=a;
+  return
+  end
+ if f(c)==0
+  z=c;
+  return
+  end
 if f(c)*f(a)<0
      b = c;
 

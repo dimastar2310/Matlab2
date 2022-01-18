@@ -5,12 +5,12 @@
         format short
         y= f(x);
         plot(x,y)
-%         grid on
-%         axis([-5 5 -5 5])
-%         xl = xlim;
-%         yl = ylim;
-%         line([0 0],yl);%x-axis
-%         line(xl,[0 0]);%y-axis
+        grid on
+        axis([-5 5 -5 5])
+        xl = xlim;
+        yl = ylim;
+        line([0 0],yl);%x-axis
+        line(xl,[0 0]);%y-axis
 
 % function z = f2(x) 
 % z = exp(x);
@@ -27,7 +27,7 @@ Sn = an; % First sum of the terms
 E = inf; % Some arbitrary big value
 while E > 0.000001 % While the estimated error is BIGGER than tolerance
  n = n + 1; % Increment n
- an = x.^n * log(3)^n / factorial(n); % Next term in the series
+ an = x.^n * log(3)^n/ factorial(n); % Next term in the series
  Sn = Sn + an;
  E = abs(an/Sn); % Estimated error
 

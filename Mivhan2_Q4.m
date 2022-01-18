@@ -1,5 +1,20 @@
 %%%%%Test2,Q4%%%%%%%%%%
 
+clc,clear all
+syms v(t) k t
+
+
+eqns = diff(v,t)==-k*v;
+tnai = v(0)==50;
+klali = dsolve(eqns);
+%%%finding c
+prati = dsolve(eqns,tnai)
+%%%finding k 
+tnai2 = 50*exp(-k*10)==10;
+kk = solve(tnai2);
+
+v13 = subs(exp(1/10*log(1/5)*t)*50,t,13)
+
 
 a = 0;
 b = 30;
@@ -23,10 +38,11 @@ grid on
 syms time
 format short
 sympref('FloatingPointOutput',true);
-sol = solve(exp(1/10*log(1/5)*time)*50==1);
+disp('after 13 minutes')
+y(130)
 %%%24 minuntes%%%%
 
-ytrue = exp(1/10*log(1/5)*x)*50;
+ytrue = exp(-kk*x)*50;
 
 plot(x,y,'r',x,ytrue,'b')
 
